@@ -1,0 +1,14 @@
+{
+    "autoload": {
+        "psr-4": {
+            "Helium\\": "src/"
+        }
+    },
+    "use-parent-dir": true,
+    "require": {
+        "doctrine/dbal": "^3.2.0",
+        "monolog/monolog": "^2.3.5",
+        "ext-json": "*",
+        "ext-pdo": "*"
+    }
+}

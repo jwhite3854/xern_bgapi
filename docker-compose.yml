@@ -1,0 +1,23 @@
+version: '3'
+services:
+  mysql_8:
+    image: mysql:8.0
+    ports:
+      - "3399:3306"
+    volumes: 
+      - .data/mysql:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: dbuser
+      MYSQL_PASSWORD: dbuser
+  web:
+    build: .docker
+    image: helium-php7
+    links:
+      - mysql_8
+    ports:
+      - "8088:80"
+    volumes:
+      - ./app:/app
+      - ./.env.local:/.env
+      - ./composer.json:/app/composer.json
